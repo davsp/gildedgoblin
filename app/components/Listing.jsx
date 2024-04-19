@@ -1,12 +1,17 @@
 import React from 'react';
+import Link from 'next/link';
 
-const Listing = () => {
+export default function Listing ({ listing }) {
+    const { game_type, title, id, description } = listing;
     return (
-        <div>
-            <h2>WTB Listing!!</h2>
-            This is the Listing Component
-        </div>
+        <Link href={`/listings/${id}`}>
+            Title:  {title}
+            <br />
+            Game Type: {game_type}
+            <br />
+            Description: {description}
+        </Link>
     );
 };
 
-export default Listing;
+

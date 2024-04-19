@@ -5,19 +5,21 @@ const NavItems = [
     'Home',
     'Listings',
     'WTB',
-    'About'
+    'About',
+    'Join Us'
 ];
 
 const Navbar = () => {
     return (
         <nav>
-            <ul class="flex">
-                    {NavItems.map((item, index) => {
+            <ul className="flex">
+                {NavItems.map((item, index) => {
+
                     return (
-                        <li class="mr-6">                            
-                        <Link className="text-blue-500 hover:text-blue-800" key={index} href={`/${item.toLowerCase()}`} >{item}</Link>    
+                        <li className="mr-6" key={index}>
+                            <Link className="text-blue-500 hover:text-blue-800" href={`/${item === 'Home' ? '/' : item.toLowerCase()}`} >{item}</Link>
                         </li>
-                                        )
+                    )
                 })}
                 </ul>
             </nav>
