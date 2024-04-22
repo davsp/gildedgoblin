@@ -7,15 +7,17 @@ import Listing from '../components/Listing'
 export default function Home() {
     const [listings, setListings] = useState([])
 
-    const fetchedListings = async () => {
-        const { data, error } = await supabase
-        .from('listings')
-        .select('*').limit(5).order('created_at', { ascending: false });
-        setListings(data)
-    };
+
 
 
     useEffect(() => {
+
+        const fetchedListings = async () => {
+            const { data, error } = await supabase
+            .from('listings')
+            .select('*').eq('game_type', 'WTS').limit(5).order('created_at', { ascending: false });
+            setListings(data)
+        };
 
         fetchedListings()
 
