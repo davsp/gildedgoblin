@@ -6,7 +6,7 @@ const NavItems = [
     'Listings',
     'WTB',
     'About',
-    'Join Us'
+    'Raffle',
 ];
 
 const Navbar = () => {

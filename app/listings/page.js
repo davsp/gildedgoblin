@@ -33,18 +33,22 @@ export default function Home() {
 
 
   return (
-    <>
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <div className="flex flex-col">
-        <span className="font-bold">Listings</span>
-        {
-            listings.map((listing) => (
-                <Listing listing={listing} key={listing.id}/>
-            ))
-        }
-        </div>
-    </div>
+      <>
+          <main className="flex flex-col items-center justify-between p-12">
+              <div className="z-10 items-center justify-between font-mono text-sm lg:flex">
+                  <div className="flex flex-col">
+                      <span className="font-bold">Listings</span>
+                      <div className="border-5 mx-auto mt-10 grid max-w-lg grid-rows-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-rows-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-rows-5">
+                          {
+                              listings.map((listing) => (
+
+                                  <Listing listing={listing} key={listing.id} />
+
+                              ))
+                          }
+                      </div>
+                  </div>
+              </div>
     </main>
     </>
   );
