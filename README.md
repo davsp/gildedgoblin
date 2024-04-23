@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+Gilded Goblin aims to be the top marketplace for gamers, getting the trades you need in record speed.
 ## Getting Started
 
 First, run the development server:
