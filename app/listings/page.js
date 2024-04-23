@@ -15,7 +15,7 @@ export default function Home() {
         const fetchedListings = async () => {
             const { data, error } = await supabase
             .from('listings')
-            .select('*').eq('game_type', 'WTS').limit(5).order('created_at', { ascending: false });
+            .select('*').in('game_type', ['WTS','WTB']).limit(5).order('created_at', { ascending: false });
             setListings(data)
         };
 
@@ -32,26 +32,37 @@ export default function Home() {
     }, [supabase])
 
 
-  return (
-      <>
-          <main className="flex flex-col items-center justify-between p-12">
-              <div className="z-10 items-center justify-between font-mono text-sm lg:flex">
-                  <div className="flex flex-col">
-                      <span className="font-bold">Listings</span>
-                      <div className="border-5 mx-auto mt-10 grid max-w-lg grid-rows-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-rows-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-rows-5">
-                          {
-                              listings.map((listing) => (
-
-                                  <Listing listing={listing} key={listing.id} />
-
-                              ))
-                          }
-                      </div>
-                  </div>
-              </div>
-    </main>
+return (
+    <>
+        <main className="flex flex-col items-center justify-between p-12">
+            <div className="z-10 items-center justify-between font-mono text-sm lg:flex">
+                <div className="flex flex-rows p-15">
+                    <span className="font-bold">Listings</span>
+                    <div className="border-5 mx-auto mt-10 grid max-w-lg grid-rows-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-rows-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-rows-5">
+                        WTB
+                        {
+                            listings
+                                .filter((listing) => listing.game_type === 'WTB')
+                                .map((listing) => (
+                                    <Listing listing={listing} key={listing.id} />
+                                ))
+                        }
+                    </div>
+                    <div className="border-5 mx-auto mt-10 grid max-w-lg grid-rows-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-rows-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-rows-5">
+                        WTS
+                        {
+                            listings
+                                .filter((listing) => listing.game_type === 'WTS')
+                                .map((listing) => (
+                                    <Listing listing={listing} key={listing.id} />
+                                ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </main>
     </>
-  );
+);
 }
 
 
