@@ -12,7 +12,6 @@ export default async function Page({ params }) {
         JSON: {JSON.stringify(listing)}
         Game: {listing[0] && JSON.stringify(listing[0].games.name)}
         <Link href="/">Back to Main Page</Link>
-        <Link href="/wts">WTS</Link>
       </div>
     </main>
   );

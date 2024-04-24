@@ -10,6 +10,7 @@ export default function Home() {
         <Link href="/listings" prefetch>Listings</Link>
         <Link href="/wtb">WTB</Link>
       </div>
+
     </main>
     </>
   );
