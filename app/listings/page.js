@@ -5,21 +5,23 @@ import { supabase } from '../utils/supabase'
 import Listing from '../components/Listing'
 
 export default function Home() {
-    const [listings, setListings] = useState([])
+    const [listings, setListings] = useState([]);
+
 
 
 
 
     useEffect(() => {
 
-        const fetchedListings = async () => {
+        // const fetchedListings = 
+        async () => {
             const { data, error } = await supabase
             .from('listings')
             .select('*').in('game_type', ['WTS','WTB']).limit(5).order('created_at', { ascending: false });
             setListings(data)
         };
 
-        fetchedListings()
+        // fetchedListings()
 
         const handleInserts = (payload) => {
             setListings((prev) => [payload.new, ...prev])
@@ -29,7 +31,7 @@ export default function Home() {
         .channel('listings')
         .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'listings' }, handleInserts)
         .subscribe()
-    }, [supabase])
+    }, [])
 
 
 return (
