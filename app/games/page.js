@@ -4,6 +4,9 @@ import { supabase } from '../utils/supabase';
 
 // {params} - removed temporarily
 export default async function Page() {
+
+  // pull categories without cache to ensure we get the latest data
+  // @TODO: Figure out to how to transfer to redis cache
   const { data: games } = await supabase.from('games').select('*');
 
 

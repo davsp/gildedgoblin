@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabase } from '../../utils/supabase';
+import CreateListing from '../../components/CreateListing'
 
 
 export default async function Page({ params }) {
@@ -12,6 +13,7 @@ export default async function Page({ params }) {
         JSON: {JSON.stringify(listing)}
         Game: {listing[0] && JSON.stringify(listing[0].games.name)}
         <Link href="/">Back to Main Page</Link>
+        <CreateListing game_id={params.game_id} />
       </div>
     </main>
   );

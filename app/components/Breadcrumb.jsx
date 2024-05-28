@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
-const items = [{ label: 'Home', link: '/' }, { label: 'Games', link: '/games' }, { label: 'Contact', link: '/contact' }, { label: 'Support', link: '/support' }];
+const items = [
+    { label: 'Home', link: '/' }, 
+    { label: 'Games', link: '/games' }, 
+    { label: 'Contact', link: '/contact' }, 
+    { label: 'Support', link: '/support' }
+];
 
 
 // {items}
